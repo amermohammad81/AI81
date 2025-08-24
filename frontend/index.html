@@ -140,16 +140,16 @@
         const chatContainer = document.getElementById('chatContainer');
         const status = document.getElementById('status');
         
-        // Auto-resize textarea
+
         messageInput.addEventListener('input', function() {
             this.style.height = 'auto';
             this.style.height = Math.min(this.scrollHeight, 120) + 'px';
             
-            // Enable/disable send button
+            
             sendButton.disabled = this.value.trim() === '';
         });
         
-        // Handle Enter key
+     
         messageInput.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
@@ -166,15 +166,12 @@
             // Add user message
             addMessage(message, 'user');
             
-            // Clear input
+         
             messageInput.value = '';
             messageInput.style.height = 'auto';
             sendButton.disabled = true;
-            
-            // Show typing indicator
             showTypingIndicator();
             
-            // Simulate API call to Python backend
             simulateBackendResponse(message);
         }
         
@@ -246,7 +243,6 @@
             setTimeout(() => {
                 hideTypingIndicator();
                 
-                // Generate a contextual response
                 let response;
                 const lowerMessage = userMessage.toLowerCase();
                 
@@ -299,18 +295,17 @@
             });
             const data = await response.json();
             console.log(data);
-            // document.getElementById("answer").innerText = data.answer || data.error;
             callback(data.answer);
         }
 
        
         
-        // Focus on input when page loads
         window.addEventListener('load', () => {
             messageInput.focus();
         });
     </script>
 </body>
 </html>
+
 
 
