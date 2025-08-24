@@ -252,30 +252,13 @@
                 let response;
                 const lowerMessage = userMessage.toLowerCase();
                 
-                // if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
-                //     response = "Hello! It's great to meet you. How can I assist you today?";
-                // } else if (lowerMessage.includes('help')) {
-                //     response = "I'm here to help! I can answer questions, provide information, help with problem-solving, or just have a conversation. What would you like to know?";
-                // } else if (lowerMessage.includes('weather')) {
-                //     response = "I'd love to help with weather information! However, I don't have access to real-time weather data in this demo. In a full implementation, I could connect to weather APIs to give you current conditions and forecasts.";
-                // } else if (lowerMessage.includes('code') || lowerMessage.includes('programming')) {
-                //     response = "I can definitely help with coding and programming questions! Whether you need help with Python, JavaScript, debugging, or learning new concepts, I'm here to assist. What specific programming topic are you working on?";
-                // } else {
-                //     // Use a random sample response
-
-                //     // const randomResponse = sampleResponses[Math.floor(Math.random() * sampleResponses.length)];
-                //     // response = randomResponse + " " + generateContextualResponse(userMessage);
-
-                    
-                // }
                 sendToPython(lowerMessage, function(pythonResponse){
                         response = pythonResponse;
                         addMessage(response, 'ai');
                 });
                 
-                // addMessage(response, 'ai');
-            },); // Random delay between 1-3 seconds
-        }
+               
+            },); 
         
         function generateContextualResponse(message) {
             const responses = [
@@ -331,3 +314,4 @@
     </script>
 </body>
 </html>
+
