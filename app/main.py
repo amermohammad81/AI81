@@ -9,7 +9,6 @@ from langchain.memory import ConversationBufferMemory
 from serpapi import GoogleSearch
 from fastapi.middleware.cors import CORSMiddleware
 
-# تحميل المفاتيح
 load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -46,7 +45,7 @@ tools = [
 
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
-# Agent (LLM + WebSearch)
+# Agent 
 agent = initialize_agent(
     tools=tools,
     llm=llm,
@@ -79,3 +78,4 @@ async def ask_agent(question: Question):
 @app.get("/")
 def index():
     return {"message": "Agent API is running"}
+
